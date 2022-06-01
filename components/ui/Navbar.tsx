@@ -1,6 +1,7 @@
-import { Spacer, Text, useTheme } from "@nextui-org/react";
-import Image from "next/image";
 import { FC } from "react";
+import Image from "next/image";
+import { Spacer, Text, useTheme } from "@nextui-org/react";
+import { LinkContainer } from "./Link";
 
 export const Navbar: FC = () => {
   const { theme } = useTheme();
@@ -12,24 +13,30 @@ export const Navbar: FC = () => {
         width: "100%",
         alignItems: "center",
         justifyContent: "start",
-        padding: "0 20px",
-        backgroundColor: theme?.colors.gray300.value,
+        padding: "0 50px",
+        backgroundColor: theme?.colors.primaryShadow.value,
       }}
     >
-      <Image
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-        alt="Imagen de pokemon"
-        width={70}
-        height={70}
-      />
-      <Text color="white" h2>
-        P
-      </Text>
-      <Text color="white" h3>
-        okemon
-      </Text>
+      <LinkContainer href="/">
+        <Image
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg"
+          alt="Imagen de pokemon"
+          width={50}
+          height={50}
+        />
+        <Text color="white" h2>
+          P
+        </Text>
+        <Text color="white" h3>
+          ókemon
+        </Text>
+      </LinkContainer>
       <Spacer css={{ flex: 1 }} />
-      <Text color="white">favoritos</Text>
+      <LinkContainer href="/favorites">
+        <Text h3 color="white">
+          Favoritos
+        </Text>
+      </LinkContainer>
     </div>
   );
 };
